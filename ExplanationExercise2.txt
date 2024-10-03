@@ -1,0 +1,23 @@
+Explanation
+
+The program demonstrates how to utilize OpenMP for parallel programming in C by performing several operations on an array of random integers. The main tasks of the program include initializing an array with random numbers, finding the maximum and minimum values, calculating the average, and printing the results.
+
+Library Inclusions
+The code begins by including necessary libraries:
+
+-omp.h for OpenMP functions.
+-stdio.h for standard input/output functions.
+-stdlib.h for utility functions, such as random number generation.
+-time.h to seed the random number generator with the current time.
+
+Variable Declarations
+The program declares an array of 100 integers, along with variables for the maximum (max), minimum (min), and average (avg) values, as well as a variable (sum) to accumulate the total of the array elements. The maximum is initialized to 0, and the minimum is set to a large value (100,000) to ensure any number in the array will be less than this initial value.
+
+Random Number Generation
+The random number generator is seeded using srand(time(NULL)), which ensures that each execution of the program produces a different sequence of random numbers.
+
+Parallel Array Initialization
+The program initializes the array with random integers between 0 and 9999 in parallel. This is accomplished using the #pragma omp parallel for directive, which distributes the loop iterations across multiple threads.
+
+Finding Maximum and Minimum Values
+The program uses another parallel region to search for the maximum and minimum values in the array. Each thread maintains its local maximum and minimum values to avoid conflicts. After each thread completes its calculations, the global maximum and minimum are safely updated within a critical section (#pragma omp critical) to prevent data races.

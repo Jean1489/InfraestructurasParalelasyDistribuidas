@@ -1,0 +1,7 @@
+Explanation:
+
+omp_get_thread_num(): This function retrieves the thread number of the currently executing thread.
+
+if (thread_id % 2 == 0): This condition checks if the thread ID is even. If it is, the thread prints a message indicating that it's an even thread.
+
+else: If the thread ID is not even (i.e., it’s odd), the thread prints a message indicating that it's an odd thread
